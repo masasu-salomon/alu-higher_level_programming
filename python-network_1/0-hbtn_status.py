@@ -1,25 +1,17 @@
 #!/usr/bin/python3
 """
-This script fetches https://alu-intranet.hbtn.io/status and http://0.0.0.0:5050/status
-using urllib, and prints the body response with the required formatting.
+A script that fetches https://alu-intranet.hbtn.io/status using urllib.
+The script displays
 """
 
 import urllib.request
 
-# Fetching from https://alu-intranet.hbtn.io/status
-with urllib.request.urlopen('https://alu-intranet.hbtn.io/status') as response:
-    body = response.read()
+if __name__ == "__main__":
+    url = "https://alu-intranet.hbtn.io/status"
 
-    print("Body response:")
-    print("\t- type: {}".format(type(body)))
-    print("\t- content: {}".format(body))
-    print("\t- utf8 content: {}".format(body.decode('utf-8')))
-
-# Fetching from http://0.0.0.0:5050/status
-with urllib.request.urlopen('http://0.0.0.0:5050/status') as response:
-    body = response.read()
-
-    print("Body response:")
-    print("\t- type: {}".format(type(body)))
-    print("\t- content: {}".format(body))
-    print("\t- utf8 content: {}".format(body.decode('utf-8')))
+    with urllib.request.urlopen(url) as response:
+        body = response.read()
+        print("Body response:")
+        print("\t- type:", type(body))
+        print("\t- content:", body)
+        print("\t- utf8 content:", body.decode("utf-8"))
